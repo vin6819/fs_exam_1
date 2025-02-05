@@ -19,12 +19,12 @@ app.post('/savenote', async (req, res) => {
     console.log(data);
     
     const createdNote=await Note.create({
-        content:data.content,
+        content:data.curr,
         date:data.date
     })
     return res.json({data:createdNote})
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(3000, () => {
+  console.log(`Example app listening on port ${3000}`)
 })
