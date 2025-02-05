@@ -15,12 +15,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/savenote', async (req, res) => {
-    const data= req.body
-    console.log(data);
+    const {curr, date} = req.body
     
     const createdNote=await Note.create({
-        content:data.curr,
-        date:data.date
+        content:curr,
+        date:date
     })
     return res.json({data:createdNote})
 })

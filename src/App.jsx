@@ -16,10 +16,13 @@ function App() {
       curr,
       date: Date.now()
     }
-    const response = await axios.post('http://localhost:3000/savenote', {
-      data: content
-    })
-    console.log(response)
+    try {
+      const response = await axios.post('http://localhost:3000/savenote', content)
+      console.log(response)
+    } catch (error) {
+      console.log(error);
+    }
+    
     setNotes([...notes, content]);
     setCurr('')
   }
